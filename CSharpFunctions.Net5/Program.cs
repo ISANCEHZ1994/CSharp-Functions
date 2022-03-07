@@ -17,7 +17,8 @@ namespace CSharpFunctions.Net5
             Console.WriteLine(Multiply( Add( 1, 1), Add( 1, 1) ));
             Console.WriteLine("");
             // Calculate();
-            TryCatchExample();
+            // TryCatchExample();
+            Operators();
 
         }
 
@@ -68,16 +69,28 @@ namespace CSharpFunctions.Net5
             Console.WriteLine("Please enter a number!");
             string userInput = Console.ReadLine();
 
+            int num1 = 5;
+            int num2 = 0;
+            int result;
+
+            try
+            {
+                result = num1 + num2;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Can't divde by zero!");
+            }           
+
             try
             {
                 int userInputAsInt = int.Parse(userInput);
             }
             catch (FormatException)
-            {
-                // throw;
+            {               
                 Console.WriteLine("Format Exception: Please enter the correct type new time");
             }
-            catch(OverflowException)
+            catch (OverflowException)
             {
                 Console.WriteLine("Overflow Exception: The number was too long or too short for an int32");
             }
@@ -92,6 +105,34 @@ namespace CSharpFunctions.Net5
             
             Console.ReadKey();
         }
+
+        public static void Operators()
+        {
+            int num1 = 5;
+            int num2 = 3;
+            int num3;
+
+            // Unary Operators
+            num3 = -num1;       // this will multiply number one with minus/negative one
+            Console.WriteLine("num3 is {0}", num3);
+
+            bool isSunny = true;
+            Console.WriteLine("Is it sunny? {0}", !isSunny);
+
+            // Increment Operators
+            int num = 0;
+            num++;
+            Console.WriteLine("Num is {0}", num);
+            Console.WriteLine("Num is {0}", num++);
+            // Pre Increment
+            Console.WriteLine("Num is {0}", ++num);
+
+
+            Console.ReadKey();
+
+
+        }
+
 
 
     }
